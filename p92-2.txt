@@ -1,0 +1,23 @@
+import time
+start_time = time.time()
+
+n,m,k = map(int, input().split())
+data = list(map(int, input().split()))
+
+data.sort()
+first = data[n-1]
+second = data[n-2]
+
+#가장 큰 수가 더 해지는 횟수 계산
+count = int(m / (k+1)) *k #나누어떨어질때
+count += m % (k+1) #나누어떨어지지 않을때
+
+result = 0
+result += (count) * first #가장큰 수를 횟수만큼 더하기
+result += (m-count) * second #두번째로 큰 수를 남은 횟수만큼 더하기
+
+print(result)
+
+end_time  = time.time()
+print("time : ", end_time-start_time)
+#3~6초. 92-1은 4~8초
