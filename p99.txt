@@ -1,0 +1,24 @@
+import time
+start_time = time.time()
+
+n, k = map(int, input().split())
+# n:나눠질 수 k:나누는 수
+result = 0 
+# 연산횟수 저장공간
+while n >= k:
+  while n % k != 0: # n이 k로 나누어 딱 떨어지지 않을때
+    n -= 1 # 1을빼서 k의 배수에 맞춰줌
+    result +=1 # 현재 누적 연산횟수 
+  n //= k 
+  #  n = n//k ex)24/3 = 8 = n
+  result += 1 # 현재 누적 연산횟수
+
+while n>1: # 남은 n이 1이 될때까지
+  n -= 1 # 계속 1씩 빼기
+  result += 1 # 빼는 횟수만큼 누적시킴
+
+print(result)
+
+end_time = time.time()
+print(end_time - start_time)
+
